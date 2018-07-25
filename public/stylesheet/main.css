@@ -1,0 +1,81 @@
+/*alert*/
+.alert {
+    text-align: center;
+}
+/*form page*/
+.form-header {
+    text-align: center; 
+    margin-top: 25px;
+    color: #3d3d3d;
+}
+.form-box {
+    width: 30%; 
+    margin: 25px auto;
+}
+.form-back-btn {
+    color: #3d3d3d;
+    border-bottom: 2px solid;
+}
+.form-back-btn:hover {
+    color: #3d3d3d;
+    text-decoration: none;
+    opacity: .8;
+}
+@media(max-width: 700px) {
+    .form-back-btn {
+        display: none;
+    }
+}
+#no-register {
+    color: steelblue;
+}
+/*navbar*/
+.navbar-brand {
+    font-family: 'Merienda', cursive;
+}
+#navbar-username {
+    font-weight: 700;
+}
+.navbar {
+    background: #414345;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #232526, #414345);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #232526, #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+/*campground inedx page*/
+.jumbotron {
+    background-image: url(https://images.unsplash.com/photo-1508834284742-68b914688ebc?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=672cafac08bc7e2bbf3fe9f2576a6e4d&auto=format&fit=crop&w=1950&q=80);
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    padding: 6rem 2rem 5rem 2rem;
+    color: #fff;
+}
+.t-shadow {
+    text-shadow: 2px 2px 10px #000;
+}
+.index-camp-btn {
+    background-color: #83b3a9;
+    color: #fff;
+}
+.index-camp-btn:hover {
+    color: #fff;
+    opacity: .8;
+}
+.delete-form {
+    display: inline;
+}
+/*show page*/
+.lead {
+    font-family: 'Archivo Black', sans-serif;
+    color: #83b3a9;
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+.btn-warning {
+    background-color: #ea7070;
+    border-color: #ea7070;
+    color: #fff;
+}

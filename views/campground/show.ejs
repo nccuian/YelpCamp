@@ -1,0 +1,63 @@
+<% include ../partials/header %>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead"><i class="fas fa-info-circle"></i> Info</p>
+            <div class="list-group">
+                <li class="list-group-item">Info 1</li>
+                <li class="list-group-item">Info 2</li>
+                <li class="list-group-item">Info 3</li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card mb-3">
+                <img class="card-img-top" src="<%= campground.image %>">
+                <div class="card-body">
+                    <h4 class="float-right">1,300/day</h4>
+                    <h4><%= campground.name %></h4>
+                    <p><em>Created by <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %></em></p>
+                    <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+                        <a class="btn btn-sm btn-info" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
+                        <form class="delete-form" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST" onsubmit="return confirm('Are You Sure You Want To Do That?');">
+                            <button class="btn btn-sm btn-warning">Delete</button>
+                        </form>
+                    <% } %>
+                    <hr>
+                    <p class="card-text"><%= campground.description %></p>
+                </div>
+            </div>
+            <div class="card pt-3">
+                <div class="text-right pr-3">
+                    <a class="btn index-camp-btn" href="/campgrounds/<%=campground._id%>/comment/new">Add New Comment</a>
+                </div>
+                <hr>
+                <div calss="card-body">
+                    <% campground.comments.forEach(function(comment){ %>
+                       <div class="col-12">
+                            <span class="float-right"><%= moment(comment.createdAt).fromNow() %></span>                            
+                            <strong><%= comment.author.username %></strong>
+                            <p><%= comment.content %></p>
+                            <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                                <a class="btn btn-sm btn-info" 
+                                   href="/campgrounds/<%=campground._id%>/comment/<%=comment._id%>/edit">Edit</a>
+                                <form class="delete-form" action="/campgrounds/<%=campground._id%>/comment/<%=comment._id%>?_method=DELETE" method="POST" onsubmit="return confirm('Are You Sure You Want To Do That?');">
+                                    <button class="btn btn-warning btn-sm">Delete</button>
+                                </form>
+                            <% } %>    
+                            <hr>
+                        </div>
+                    <% }) %>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<% include ../partials/footer %>
