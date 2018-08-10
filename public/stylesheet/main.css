@@ -44,6 +44,13 @@
 .navbar-dark .navbar-nav .nav-link {
     color: #fff;
 }
+.navbar-avatar {
+    width: 24px;
+    height: 24px;
+    vertical-align: bottom;
+    border-radius: 50%;
+    margin-right: 10px
+}
 /*campground inedx page*/
 .jumbotron {
     background-image: url(https://images.unsplash.com/photo-1508834284742-68b914688ebc?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=672cafac08bc7e2bbf3fe9f2576a6e4d&auto=format&fit=crop&w=1950&q=80);
@@ -81,7 +88,9 @@
 }
 .user-link {
     color: #83b3a9;
-    text-decoration: underline;
+}
+#comment-content {
+    margin-top: 5px;
 }
 /*user profile*/
 #user-header {

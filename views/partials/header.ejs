@@ -30,7 +30,10 @@
                              <li class="nav-item"><a class="nav-link">|</a></li>
                              <li class="nav-item"><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Log in</a></li>
                         <% } else{ %>
-                             <li id="navbar-username" class="nav-item"><a class="nav-link" href="/user/<%=currentUser.id%>"><%=currentUser.username%></a></li>
+                             <li id="navbar-username" class="nav-item"><a class="nav-link" href="/user/<%=currentUser.id%>">
+                                <img class="navbar-avatar" src="<%=currentUser.avatar%>">  
+                                <%=currentUser.username%>
+                             </a></li>
                              <li class="nav-item"><a class="nav-link">|</a></li>
                              <li class="nav-item"><a class="nav-link" href="/campgrounds"><i class="fas fa-home"></i> Home</a></li>
                              <li class="nav-item"><a class="nav-link">|</a></li>

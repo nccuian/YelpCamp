@@ -28,6 +28,7 @@ router.post("/campgrounds/:id/comment", middleware.isLoggedIn, function(req, res
                     //now username will be added here, not by form anymore
                     comment.author.id = req.user._id;
                     comment.author.username = req.user.username;
+                    comment.author.avatar = req.user.avatar;
                     comment.save();
                     campground.comments.push(comment);
                     campground.save();

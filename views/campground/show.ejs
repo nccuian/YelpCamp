@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <h4 class="float-right">1,300/day</h4>
                     <h4><%= campground.name %></h4>
-                    <p><em>Created by <a class="user-link" href="/user/<%=campground.author.id%>"><%= campground.author.username %></a>, <%= moment(campground.createdAt).fromNow() %></em></p>
+                    <p><em>Created by <a class="user-link" href="/user/<%=campground.author.id%>"><strong><%= campground.author.username %></strong></a>, <%= moment(campground.createdAt).fromNow() %></em></p>
                     <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
                         <a class="btn btn-sm btn-info" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
                         <form class="delete-form" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST" onsubmit="return confirm('Are You Sure You Want To Do That?');">
@@ -36,8 +36,11 @@
                     <% campground.comments.forEach(function(comment){ %>
                        <div class="col-12">
                             <span class="float-right"><%= moment(comment.createdAt).fromNow() %></span>                            
-                            <a class="user-link" href="/user/<%=comment.author.id%>"><strong><%= comment.author.username %></strong></a>
-                            <p><%= comment.content %></p>
+                            <a class="user-link" href="/user/<%=comment.author.id%>">
+                                <img class="navbar-avatar" src="<%=comment.author.avatar%>">
+                                <strong><%= comment.author.username %></strong>
+                            </a>
+                            <p id="comment-content"><%= comment.content %></p>
                             <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
                                 <a class="btn btn-sm btn-info" 
                                    href="/campgrounds/<%=campground._id%>/comment/<%=comment._id%>/edit">Edit</a>

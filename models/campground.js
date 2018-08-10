@@ -8,7 +8,8 @@ var campgroundSchema = new mongoose.Schema({
     createdAt: {type: Date, default: Date.now},
     author: {
         id:{type: mongoose.Schema.Types.ObjectId, ref: "User"},
-        username: String
+        username: String,
+        avatar: String
     },
     comments: [{type: mongoose.Schema.Types.ObjectId, ref:"Comment"}]
 });
