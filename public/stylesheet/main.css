@@ -79,3 +79,25 @@
     border-color: #ea7070;
     color: #fff;
 }
+.user-link {
+    color: #83b3a9;
+    text-decoration: underline;
+}
+/*user profile*/
+#user-header {
+    background-color: #eee;
+    text-align: center;
+    padding: 25px;
+}
+.user-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: 50% 50%;
+    margin: 0 auto;
+}
+#user-header h2 {
+    font-family: 'Archivo Black', sans-serif;
+    margin-top: 8px;
+}

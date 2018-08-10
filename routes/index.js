@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
+var Campground = require("../models/campground");
 
 // landing route
 router.get("/", function(req, res){
@@ -14,7 +15,12 @@ router.get("/register", function(req, res){
 });
 
 router.post("/register", function(req, res){
-    var newUser = new User({username: req.body.username});
+    var newUser = new User({
+        username: req.body.username,
+        avatar: req.body.avatar,
+        age: req.body.age,
+        email: req.body.email
+    });
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             req.flash("error", err.message);
@@ -47,14 +53,22 @@ router.get("/logout", function(req, res){
     res.redirect("/campgrounds");
 });
 
-// function isLoggedIn(req, res ,next){
-//     if(req.isAuthenticated()){
-//         return next();
-//     }
-//     req.session.returnTo = req.path;
-//     // console.log(req.session)
-//     // console.log(req.path)
-//     res.redirect("/login")
-// }
+//user profiles
+router.get("/user/:id", function(req, res){
+    User.findById(req.params.id, function(err, foundUser){
+        if(err){
+            req.flash("err", "No found user");
+            res.redirect("/");
+        }
+        Campground.find().where("author.id").equals(foundUser._id).exec(function(err, campgrounds){
+            if(err){
+                req.flash("err", "No found user");
+                res.redirect("/");
+            }
+            res.render("user/show", {user: foundUser, campgrounds: campgrounds});
+        })
+    })
+})
+
 
 module.exports = router;
