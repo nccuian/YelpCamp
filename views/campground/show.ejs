@@ -14,7 +14,11 @@
             <div class="card mb-3">
                 <img class="card-img-top" src="<%= campground.image %>">
                 <div class="card-body">
-                    <h4 class="float-right">1,300/day</h4>
+                    <h4 class="float-right">
+                        <% for(var i=0; i<campground.stars; i++) {  %>
+                            <i class="fas fa-star stars"></i>
+                        <% } %>
+                    </h4>
                     <h4><%= campground.name %></h4>
                     <p><em>Created by <a class="user-link" href="/user/<%=campground.author.id%>"><strong><%= campground.author.username %></strong></a>, <%= moment(campground.createdAt).fromNow() %></em></p>
                     <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>

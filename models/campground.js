@@ -11,6 +11,7 @@ var campgroundSchema = new mongoose.Schema({
         username: String,
         avatar: String
     },
-    comments: [{type: mongoose.Schema.Types.ObjectId, ref:"Comment"}]
+    comments: [{type: mongoose.Schema.Types.ObjectId, ref:"Comment"}],
+    stars: {type: Number, min: 1, max: 5}
 });
 module.exports = mongoose.model("Campground", campgroundSchema);

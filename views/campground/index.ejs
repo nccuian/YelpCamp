@@ -3,7 +3,7 @@
 <div class="container">
     <header class="jumbotron">
         <h1 class="t-shadow">Welcome to YelpCamp</h1>
-        <p class="t-shadow">View our hand-picked campgrounds from all over the world</p>
+        <p class="t-shadow">View our hand-picked tours from all over the world</p>
         
         <p class="mt-5">
             <a class="btn index-camp-btn" href="/campgrounds/new">Add New Camp</a>
@@ -17,6 +17,11 @@
                      <img class="card-img-top" src="<%= camp.image %>">
                      <div class="card-body text-center">
                          <h4 class="card-text"><%= camp.name %></h4>
+                         <h4 class="card-text star-bar">
+                             <% for(var i=0; i<camp.stars; i++) {  %>
+                                <i class="fas fa-star stars"></i>
+                            <% } %>
+                         </h4>
                          <a href="/campgrounds/<%= camp._id %>" class="btn index-camp-btn mt-3">More Info</a>
                      </div>
                 </div>  

@@ -60,6 +60,10 @@
     padding: 6rem 2rem 5rem 2rem;
     color: #fff;
 }
+.star-bar {
+    margin-bottom: 0;
+    font-size: .8rem;
+}
 .t-shadow {
     text-shadow: 2px 2px 10px #000;
 }
@@ -80,6 +84,9 @@
     color: #83b3a9;
     margin-bottom: 0;
     font-size: 2rem;
+}
+.stars {
+    color: #f7eb1d;
 }
 .btn-warning {
     background-color: #ea7070;
